@@ -35,7 +35,7 @@ public class Main {
             out.write("===================================\n");
             out.flush();
         } catch (IOException e) {
-            System.out.println("文件读写异常！");
+            System.out.println("文件写入异常！");
             e.printStackTrace();
         }finally {
             try {

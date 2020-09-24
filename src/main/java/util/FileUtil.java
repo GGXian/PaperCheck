@@ -30,12 +30,14 @@ public final class FileUtil {
                 builder.append(tempString.trim());
             }
         } catch (IOException e) {
+            System.out.println("读取文件异常，请检查文件路径是否正确！");
             e.printStackTrace();
         } finally {
             if (reader != null){
                 try {
                     reader.close();
                 } catch (IOException e) {
+                    System.out.println("读取文件异常！");
                     e.printStackTrace();
                 }
             }
@@ -58,8 +60,9 @@ public final class FileUtil {
         if (!dirs.exists() || !dirs.isDirectory()) {
             if (!dirs.mkdirs()){
                 try {
-                    throw new Exception("无法创建文件夹！");
+                    throw new Exception("无法创建文件夹，请检查文件路径是否正确！");
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     e.printStackTrace();
                     return null;
                 }
@@ -69,9 +72,10 @@ public final class FileUtil {
         if (!file.exists() || !file.isFile()){
             try {
                 if (!file.createNewFile()){
-                    throw new Exception("无法创建文件！");
+                    throw new Exception("无法创建文件，请检查文件路径是否正确！");
                 }
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 e.printStackTrace();
                 return null;
             }
