@@ -1,11 +1,9 @@
-package main.java.util;
+package util;
 
 
-import main.java.pojo.File;
+import pojo.File;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author GGXian
@@ -26,7 +24,7 @@ public final class FileUtil {
         String tempString;
         StringBuilder builder = new StringBuilder();
         try {
-            reader = new BufferedReader(new FileReader(filePath));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
             // 一次读入一行，直到读入null为文件结束
             while ((tempString = reader.readLine()) != null) {
                 builder.append(tempString.trim());

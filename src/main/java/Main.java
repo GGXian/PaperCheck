@@ -1,9 +1,6 @@
-package main.java;
-
-
-import main.java.pojo.File;
-import main.java.util.Calculator;
-import main.java.util.FileUtil;
+import pojo.File;
+import util.Calculator;
+import util.FileUtil;
 
 import java.io.*;
 import java.text.NumberFormat;
@@ -38,6 +35,7 @@ public class Main {
             out.write("===================================\n");
             out.flush();
         } catch (IOException e) {
+            System.out.println("文件读写异常！");
             e.printStackTrace();
         }finally {
             try {

@@ -1,7 +1,7 @@
-package main.java.util;
+package util;
 
 
-import main.java.pojo.File;
+import pojo.File;
 
 /**
  * @author GGXian
