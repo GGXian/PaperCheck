@@ -37,17 +37,34 @@ public final class Calculator {
         int yLength = y.length();
         int i = 1;
         int j;
-        // 构造二维数组记录子问题x[i]和y[i]的LCS的长度
-        int[][] opt = new int[xLength + 1][yLength + 1];
-        // 动态规划计算所有子问题
+//        // 构造二维数组记录子问题x[i]和y[i]的LCS的长度
+////        int[][] opt = new int[xLength + 1][yLength + 1];
+////        // 动态规划计算所有子问题
+////        for (; i < xLength; i++){
+////            for (j = 1; j < yLength; j++){
+////                if (x.charAt(i) == y.charAt(j)) {
+////                    opt[i][j] = opt[i - 1][j - 1] + 1;
+////                }
+////                opt[i][j] = Math.max( opt[i][j],Math.max(opt[i - 1][j], opt[i][j - 1]));
+////            }
+////        }
+////        return opt[xLength - 1][yLength - 1];
+
+        int pre;
+        int cur;
+        int[] opt = new int[yLength];
         for (; i < xLength; i++){
+            pre = 0;
             for (j = 1; j < yLength; j++){
+                cur = opt[j];
                 if (x.charAt(i) == y.charAt(j)) {
-                    opt[i][j] = opt[i - 1][j - 1] + 1;
+                    opt[j] = pre + 1;
+                }else{
+                    opt[j] = Math.max(opt[j-1], opt[j]);
                 }
-                opt[i][j] = Math.max( opt[i][j],Math.max(opt[i - 1][j], opt[i][j - 1]));
+                pre = cur;
             }
         }
-        return opt[xLength - 1][yLength - 1];
+        return opt[yLength - 1];
     }
 }
