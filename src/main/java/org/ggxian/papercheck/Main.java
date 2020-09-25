@@ -1,5 +1,6 @@
 package org.ggxian.papercheck;
 
+import org.ggxian.papercheck.component.EnterNullException;
 import org.ggxian.papercheck.pojo.Paper;
 import org.ggxian.papercheck.util.CalculatorUtil;
 import org.ggxian.papercheck.util.FileUtil;
@@ -19,11 +20,11 @@ public class Main {
         long before = System.currentTimeMillis();
         try {
             if (args[0] == null){
-                throw new Exception("输入的源文件地址为空，请重新输入！");
+                throw new EnterNullException("输入的源文件地址为空，请重新输入！");
             } else if (args[1] == null) {
-                throw new Exception("输入的对比文件地址为空，请重新输入！");
+                throw new EnterNullException("输入的对比文件地址为空，请重新输入！");
             }else if (args[2] == null){
-                throw new Exception("输出文件地址为空，请重新输入！");
+                throw new EnterNullException("输出文件地址为空，请重新输入！");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
