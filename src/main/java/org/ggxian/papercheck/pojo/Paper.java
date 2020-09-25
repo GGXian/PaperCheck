@@ -1,4 +1,4 @@
-package pojo;
+package org.ggxian.papercheck.pojo;
 
 
 /**
@@ -7,7 +7,7 @@ package pojo;
  * @createTime 2020/9/22 20:56
  * @description 论文文件模型
  **/
-public class File {
+public class Paper {
     /**
      * 文本的总字符数
      */
